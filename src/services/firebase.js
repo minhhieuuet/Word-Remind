@@ -11,8 +11,9 @@ var firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore()
 const auth = firebase.auth()
-
+const messaging = firebase.messaging()
 export {
     db,
-    auth
+    auth,
+    messaging
   }

@@ -14,7 +14,7 @@
   </div>
 </template>
 <script>
-import { db } from "../services/firebase";
+import { db, messaging } from "../services/firebase";
 export default {
   data() {
     return {
@@ -46,6 +46,12 @@ export default {
     },
   },
   async mounted() {
+    Notification.requestPermission().then(function(permission) {
+      console.log(permission);
+      return messaging.getToken();
+    }).then((token) => {
+      console.log(token);
+    });
     this.getData();
   },
 };
